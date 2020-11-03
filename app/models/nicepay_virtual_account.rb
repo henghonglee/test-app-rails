@@ -1,0 +1,2 @@
+class NicepayVirtualAccount < VirtualAccount
+end

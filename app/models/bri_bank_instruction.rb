@@ -1,0 +1,3 @@
+class BriBankInstruction < BankInstruction
+end
+

@@ -35,7 +35,9 @@ ActiveRecord::Schema.define(version: 2020_10_31_174852) do
 
   create_table "contracts", force: :cascade do |t|
     t.string "type"
+    t.integer "order_id"
     t.decimal "amount", null: false
+    t.index ["order_id"], name: "index_contracts_on_order_id"
   end
 
   create_table "ledgers", force: :cascade do |t|
@@ -44,9 +46,15 @@ ActiveRecord::Schema.define(version: 2020_10_31_174852) do
     t.index ["charge_id"], name: "index_ledgers_on_charge_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "type"
+    t.decimal "amount", null: false
+  end
+
   create_table "reconciliations", force: :cascade do |t|
     t.integer "contract_id"
     t.integer "charge_id"
+    t.integer "cost_charge_id"
     t.index ["charge_id"], name: "index_reconciliations_on_charge_id"
     t.index ["contract_id"], name: "index_reconciliations_on_contract_id"
   end

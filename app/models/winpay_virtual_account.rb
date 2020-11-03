@@ -1,0 +1,2 @@
+class WinpayVirtualAccount < VirtualAccount
+end
